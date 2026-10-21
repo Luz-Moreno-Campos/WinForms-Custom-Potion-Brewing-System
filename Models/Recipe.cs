@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace WinForms_Custom_Potion_Brewing_System.Models
 {
-    internal class Recipe
+    public class Recipe
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+
+        public string SpecialEffect { get; set; } = string.Empty;
+
+        public int BrewingDurationSeconds { get; set; }
+
+        public ICollection<RecipeIngredient> RecipeIngredients { get; set; }
+            = new List<RecipeIngredient>();
     }
 }

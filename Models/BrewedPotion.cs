@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace WinForms_Custom_Potion_Brewing_System.Models
 {
-    internal class BrewedPotion
+    public class BrewedPotion
     {
+        public int Id { get; set; }
+
+        public int RecipeId { get; set; }
+
+        public Recipe Recipe { get; set; } = null!;
+
+        public DateTime CreatedAt { get; set; }
     }
 }
