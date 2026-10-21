@@ -18,5 +18,8 @@ namespace WinForms_Custom_Potion_Brewing_System.Models
 
         public ICollection<RecipeIngredient> RecipeIngredients { get; set; }
             = new List<RecipeIngredient>();
+
+        public ICollection<BrewedPotion> BrewedPotions { get; set; }
+            = new List<BrewedPotion>();
     }
 }

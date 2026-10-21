@@ -8,6 +8,7 @@ namespace WinForms_Custom_Potion_Brewing_System.Models
 {
     public class RecipeIngredient
     {
+        public int Id { get; set; }
         public int RecipeId { get; set; }
 
         public Recipe Recipe { get; set; } = null!;

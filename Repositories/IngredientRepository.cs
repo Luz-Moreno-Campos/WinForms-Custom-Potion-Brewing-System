@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace WinForms_Custom_Potion_Brewing_System.Repositories
 {
-    internal class IngredientRepsitory
+    internal class IngredientRepository
     {
     }
 }
