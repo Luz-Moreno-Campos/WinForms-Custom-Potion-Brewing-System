@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+namespace WinForms_Custom_Potion_Brewing_System.Repositories
+{
+    internal class IngredientRepsitory
+    {
+    }
+}
