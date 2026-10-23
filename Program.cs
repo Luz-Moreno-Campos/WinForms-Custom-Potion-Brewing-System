@@ -57,8 +57,12 @@ namespace WinForms_Custom_Potion_Brewing_System
 
             ApplicationConfiguration.Initialize();
 
-            Application.Run(
-                host.Services.GetRequiredService<DashboardForm>());
+            // Application.Run(host.Services.GetRequiredService<DashboardForm>());
+
+           
+            var form = host.Services.GetRequiredService<IngredientForm>();
+            Application.Run(form);
+
         }
     }
 }

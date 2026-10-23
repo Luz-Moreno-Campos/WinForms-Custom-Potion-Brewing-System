@@ -53,6 +53,12 @@ namespace WinForms_Custom_Potion_Brewing_System.Repositories
             _context.Ingredients.Remove(ingredient);
 
             await _context.SaveChangesAsync();
+
+            /*
+             Clears EF Core's tracking memory to prevent  
+             foreign key errors after deleting records.
+            */
+            _context.ChangeTracker.Clear();
         }
     }
 }
