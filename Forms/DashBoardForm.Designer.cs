@@ -67,6 +67,7 @@
             btnIngredients.TabIndex = 1;
             btnIngredients.Text = "Ingredients";
             btnIngredients.UseVisualStyleBackColor = true;
+            btnIngredients.Click += btnIngredients_Click;
             // 
             // btnRecipes
             // 
@@ -77,6 +78,7 @@
             btnRecipes.TabIndex = 2;
             btnRecipes.Text = "Recipes";
             btnRecipes.UseVisualStyleBackColor = true;
+            btnRecipes.Click += btnRecipes_Click;
             // 
             // btnBrewingHub
             // 
@@ -87,6 +89,7 @@
             btnBrewingHub.TabIndex = 3;
             btnBrewingHub.Text = "Brewing Hub";
             btnBrewingHub.UseVisualStyleBackColor = true;
+            btnBrewingHub.Click += btnBrewingHub_Click;
             // 
             // lblFrequentlyBrewed
             // 
@@ -100,9 +103,16 @@
             // 
             // dgvFrequentlyBrewed
             // 
+            dgvFrequentlyBrewed.AllowUserToAddRows = false;
+            dgvFrequentlyBrewed.AllowUserToDeleteRows = false;
+            dgvFrequentlyBrewed.AllowUserToResizeColumns = false;
+            dgvFrequentlyBrewed.AllowUserToResizeRows = false;
+            dgvFrequentlyBrewed.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFrequentlyBrewed.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvFrequentlyBrewed.Location = new Point(12, 163);
+            dgvFrequentlyBrewed.MultiSelect = false;
             dgvFrequentlyBrewed.Name = "dgvFrequentlyBrewed";
+            dgvFrequentlyBrewed.RowHeadersVisible = false;
             dgvFrequentlyBrewed.RowHeadersWidth = 51;
             dgvFrequentlyBrewed.Size = new Size(368, 122);
             dgvFrequentlyBrewed.TabIndex = 5;
@@ -119,9 +129,16 @@
             // 
             // dgvMostConsumed
             // 
+            dgvMostConsumed.AllowUserToAddRows = false;
+            dgvMostConsumed.AllowUserToDeleteRows = false;
+            dgvMostConsumed.AllowUserToResizeColumns = false;
+            dgvMostConsumed.AllowUserToResizeRows = false;
+            dgvMostConsumed.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMostConsumed.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMostConsumed.Location = new Point(435, 163);
+            dgvMostConsumed.MultiSelect = false;
             dgvMostConsumed.Name = "dgvMostConsumed";
+            dgvMostConsumed.RowHeadersVisible = false;
             dgvMostConsumed.RowHeadersWidth = 51;
             dgvMostConsumed.Size = new Size(330, 122);
             dgvMostConsumed.TabIndex = 7;
@@ -179,6 +196,7 @@
             btnGenerate.TabIndex = 13;
             btnGenerate.Text = "Generate";
             btnGenerate.UseVisualStyleBackColor = true;
+            btnGenerate.Click += btnGenerate_Click;
             // 
             // label5
             // 

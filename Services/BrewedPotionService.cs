@@ -4,7 +4,7 @@ using WinForms_Custom_Potion_Brewing_System.Repositories;
 
 namespace WinForms_Custom_Potion_Brewing_System.Services
 {
-    internal class BrewedPotionService
+    public class BrewedPotionService
     {
         /* 
          
