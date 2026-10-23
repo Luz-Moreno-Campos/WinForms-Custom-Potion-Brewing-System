@@ -95,5 +95,43 @@ namespace WinForms_Custom_Potion_Brewing_System.Services
 
             return specialEffect;
         }
+
+        public async Task<object> GetMostFrequentlyBrewedPotionsAsync()
+        {
+            List<BrewedPotion> brewedPotions = await _brewedPotionRepository.GetAllAsync();
+
+            return brewedPotions
+                .GroupBy(bp => bp.Recipe.Name)
+                .Select(group => new
+                {
+                    Potion = group.Key,
+                    TimesBrewed = group.Count()
+                })
+                .OrderByDescending(x => x.TimesBrewed)
+                .ToList();
+        }
+
+        public async Task<object> GetMostHeavilyConsumedIngredientsAsync()
+        {
+            List<BrewedPotion> brewedPotions = await _brewedPotionRepository.GetAllAsync();
+
+            return brewedPotions
+                .SelectMany(bp => bp.Recipe.RecipeIngredients)
+                .GroupBy(ri => ri.Ingredient.Name)
+                .Select(group => new
+                {
+                    Ingredient = group.Key,
+                    TotalConsumed = group.Sum(ri => ri.QuantityRequired)
+                })
+                .OrderByDescending(x => x.TotalConsumed)
+                .ToList();
+        }
+
+        public async Task<int> GetBrewingThroughputAsync(DateTime from, DateTime to)
+        {
+            List<BrewedPotion> brewedPotions = await _brewedPotionRepository.GetAllAsync();
+
+            return brewedPotions.Count(bp => bp.CreatedAt >= from && bp.CreatedAt <= to);
+        }
     }
 }

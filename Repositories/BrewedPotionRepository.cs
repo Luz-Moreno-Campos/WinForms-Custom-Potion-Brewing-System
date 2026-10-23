@@ -18,6 +18,8 @@ namespace WinForms_Custom_Potion_Brewing_System.Repositories
         {
             return await _context.BrewedPotions
                 .Include(bp => bp.Recipe)
+                    .ThenInclude(r => r.RecipeIngredients)
+                        .ThenInclude(ri => ri.Ingredient)
                 .OrderBy(bp => bp.CreatedAt)
                 .ToListAsync();
         }
