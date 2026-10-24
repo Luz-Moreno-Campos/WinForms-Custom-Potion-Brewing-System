@@ -36,11 +36,48 @@ namespace WinForms_Custom_Potion_Brewing_System.Repositories
             await _context.Recipes.AddAsync(recipe);
 
             await _context.SaveChangesAsync();
+
         }
 
         public async Task UpdateAsync(Recipe recipe)
         {
-         
+            var local = _context.Recipes
+                .Include(r => r.RecipeIngredients)
+                .FirstOrDefault(r => r.Id == recipe.Id);
+
+            if (local != null)
+            {
+                _context.Entry(local).CurrentValues.SetValues(recipe);
+
+                foreach (var existingIngredient in local.RecipeIngredients.ToList())
+                {
+                    if (!recipe.RecipeIngredients.Any(ri => ri.IngredientId == existingIngredient.IngredientId))
+                    {
+                        _context.RecipeIngredients.Remove(existingIngredient);
+                    }
+                }
+
+                foreach (var ingredientDto in recipe.RecipeIngredients)
+                {
+                    var existing = local.RecipeIngredients
+                        .FirstOrDefault(ri => ri.IngredientId == ingredientDto.IngredientId);
+
+                    if (existing != null)
+                    {
+                        existing.QuantityRequired = ingredientDto.QuantityRequired;
+                    }
+                    else
+                    {
+                        local.RecipeIngredients.Add(new RecipeIngredient
+                        {
+                            RecipeId = recipe.Id,
+                            IngredientId = ingredientDto.IngredientId,
+                            QuantityRequired = ingredientDto.QuantityRequired
+                        });
+                    }
+                }
+            }
+
             await _context.SaveChangesAsync();
         }
 

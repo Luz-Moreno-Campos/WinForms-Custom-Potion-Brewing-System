@@ -31,7 +31,6 @@
             dgvIngredients = new DataGridView();
             IgredientName = new Label();
             InitialStock = new Label();
-            StockManagement = new Label();
             txtIngredientName = new TextBox();
             numericUpDown1 = new NumericUpDown();
             numericUpDown2 = new NumericUpDown();
@@ -43,6 +42,7 @@
             btnDelete = new Button();
             label1 = new Label();
             label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvIngredients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -79,21 +79,11 @@
             InitialStock.TabIndex = 2;
             InitialStock.Text = "Initial Stock:";
             // 
-            // StockManagement
-            // 
-            StockManagement.AutoSize = true;
-            StockManagement.Font = new Font("Showcard Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            StockManagement.Location = new Point(315, 31);
-            StockManagement.Name = "StockManagement";
-            StockManagement.Size = new Size(271, 31);
-            StockManagement.TabIndex = 3;
-            StockManagement.Text = "Stock Management:";
-            // 
             // txtIngredientName
             // 
-            txtIngredientName.Location = new Point(174, 131);
+            txtIngredientName.Location = new Point(146, 131);
             txtIngredientName.Name = "txtIngredientName";
-            txtIngredientName.Size = new Size(125, 27);
+            txtIngredientName.Size = new Size(153, 27);
             txtIngredientName.TabIndex = 4;
             // 
             // numericUpDown1
@@ -115,10 +105,10 @@
             // AddIngredient
             // 
             AddIngredient.AutoSize = true;
-            AddIngredient.Font = new Font("Showcard Gothic", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AddIngredient.Location = new Point(10, 31);
+            AddIngredient.Font = new Font("Showcard Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AddIngredient.Location = new Point(12, 74);
             AddIngredient.Name = "AddIngredient";
-            AddIngredient.Size = new Size(223, 31);
+            AddIngredient.Size = new Size(183, 26);
             AddIngredient.TabIndex = 7;
             AddIngredient.Text = "Add Ingredient:";
             // 
@@ -160,11 +150,11 @@
             // 
             btnBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnBack.Font = new Font("Showcard Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBack.Location = new Point(85, 373);
+            btnBack.Location = new Point(12, 394);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(94, 29);
+            btnBack.Size = new Size(210, 29);
             btnBack.TabIndex = 11;
-            btnBack.Text = "Back";
+            btnBack.Text = "Back to dashboard";
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
@@ -195,17 +185,28 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Showcard Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(315, 80);
+            label2.Location = new Point(315, 74);
             label2.Name = "label2";
-            label2.Size = new Size(209, 26);
+            label2.Size = new Size(393, 26);
             label2.TabIndex = 14;
-            label2.Text = "Select Ingredient:";
+            label2.Text = "Select Ingredient to Manage Stock:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Showcard Gothic", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(279, 20);
+            label3.Name = "label3";
+            label3.Size = new Size(197, 35);
+            label3.TabIndex = 15;
+            label3.Text = "Ingredients";
             // 
             // IngredientForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(798, 442);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnDelete);
@@ -217,7 +218,6 @@
             Controls.Add(numericUpDown2);
             Controls.Add(numericUpDown1);
             Controls.Add(txtIngredientName);
-            Controls.Add(StockManagement);
             Controls.Add(InitialStock);
             Controls.Add(IgredientName);
             Controls.Add(dgvIngredients);
@@ -238,7 +238,6 @@
         private DataGridView dgvIngredients;
         private Label IgredientName;
         private Label InitialStock;
-        private Label StockManagement;
         private TextBox txtIngredientName;
         private NumericUpDown numericUpDown1;
         private NumericUpDown numericUpDown2;
@@ -250,5 +249,6 @@
         private Button btnDelete;
         private Label label1;
         private Label label2;
+        private Label label3;
     }
 }
