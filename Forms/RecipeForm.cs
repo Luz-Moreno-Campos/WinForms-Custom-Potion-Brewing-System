@@ -151,8 +151,7 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
 
             if (recipeIngredient == null)
             {
-                MessageBox.Show(
-                    "This ingredient is not part of the recipe.","Validation Error",
+                MessageBox.Show("This ingredient is not part of the recipe.","Validation Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 

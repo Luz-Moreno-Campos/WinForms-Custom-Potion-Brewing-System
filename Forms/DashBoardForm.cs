@@ -22,27 +22,6 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
             _brewingForm = brewingForm;
         }
 
-        private void btnIngredients_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            _ingredientForm.ShowDialog();
-             this.Show();
-        }
-
-        private void btnRecipes_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            _recipeForm.ShowDialog();
-            this.Show();
-        }
-
-        private void btnBrewingHub_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            _brewingForm.ShowDialog();
-            this.Show();
-        }
-
         private async Task LoadDashboardAsync()
         {
             try
@@ -77,6 +56,27 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
         private async void btnGenerate_Click(object sender, EventArgs e)
         {
             await LoadDashboardAsync();
+        }
+
+        private void btnIngredients_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _ingredientForm.ShowDialog();
+            this.Show();
+        }
+
+        private void btnRecipes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _recipeForm.ShowDialog();
+            this.Show();
+        }
+
+        private void btnBrewingHub_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _brewingForm.ShowDialog();
+            this.Show();
         }
     }
 }

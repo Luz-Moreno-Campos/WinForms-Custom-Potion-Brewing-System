@@ -86,7 +86,7 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
             try
             {
                 int ingredientId = Convert.ToInt32(dgvIngredients.SelectedRows[0].Cells["Id"].Value);
-                int adjustment = (int)numericUpDown2.Value; // Control numérico de ajuste de stock
+                int adjustment = (int)numericUpDown2.Value;
 
                 await _ingredientService.AdjustStockAsync(ingredientId, adjustment);
                 await LoadIngredientsAsync();
@@ -95,11 +95,9 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
             }
             catch (Exception ex)
             {
-                //MessageBox.Show($"Error adjusting stock: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                string errorMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-                MessageBox.Show($"Error detallado: {errorMessage}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show($"Error adjusting stock: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
         }
 
 

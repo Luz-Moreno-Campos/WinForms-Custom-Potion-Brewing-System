@@ -87,7 +87,7 @@
             btnBrewingHub.Name = "btnBrewingHub";
             btnBrewingHub.Size = new Size(197, 38);
             btnBrewingHub.TabIndex = 3;
-            btnBrewingHub.Text = "Brewing Hub";
+            btnBrewingHub.Text = "Potions Hub";
             btnBrewingHub.UseVisualStyleBackColor = true;
             btnBrewingHub.Click += btnBrewingHub_Click;
             // 
