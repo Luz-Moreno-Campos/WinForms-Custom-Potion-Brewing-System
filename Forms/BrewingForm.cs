@@ -33,6 +33,7 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
                 {
                     bp.Id, 
                     RecipeName = bp.Recipe != null ? bp.Recipe.Name : "Unknown Recipe",
+                    SpecialEffect = bp.Recipe != null ? bp.Recipe.SpecialEffect : "Unknown Effect",
                     bp.CreatedAt
                 }).ToList();
 
@@ -119,17 +120,23 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
                 return;
             }
 
-            int brewedPotionId = (int)dgvBrewedPotions.SelectedRows[0].Cells["Id"].Value;
+            var selectedRow = dgvBrewedPotions.SelectedRows[0];
+            int brewedPotionId = (int)selectedRow.Cells["Id"].Value;
+
+            string potionName = selectedRow.Cells["RecipeName"].Value?.ToString() ?? "Unknown";
+            string specialEffect = selectedRow.Cells["SpecialEffect"]?.Value?.ToString() ?? "Unknown";
 
             try
             {
-               // DISPLAY POTIONEFFECTFORM
+                using (PotionEffectForm effectForm = new PotionEffectForm(potionName, specialEffect))
+                {
+                    effectForm.ShowDialog();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error consuming potion: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
