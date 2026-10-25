@@ -224,7 +224,7 @@
             // btnSave
             // 
             btnSave.Font = new Font("Showcard Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(362, 409);
+            btnSave.Location = new Point(373, 409);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(250, 29);
             btnSave.TabIndex = 15;
@@ -235,7 +235,7 @@
             // btnCancel
             // 
             btnCancel.Font = new Font("Showcard Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancel.Location = new Point(262, 409);
+            btnCancel.Location = new Point(273, 409);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(94, 29);
             btnCancel.TabIndex = 16;
@@ -246,9 +246,9 @@
             // btnBack
             // 
             btnBack.Font = new Font("Showcard Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBack.Location = new Point(-8, 409);
+            btnBack.Location = new Point(12, 409);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(218, 29);
+            btnBack.Size = new Size(198, 29);
             btnBack.TabIndex = 17;
             btnBack.Text = "Back to dashboard";
             btnBack.UseVisualStyleBackColor = true;

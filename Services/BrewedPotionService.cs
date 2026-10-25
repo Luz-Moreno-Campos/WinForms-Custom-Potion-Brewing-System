@@ -131,7 +131,9 @@ namespace WinForms_Custom_Potion_Brewing_System.Services
         {
             List<BrewedPotion> brewedPotions = await _brewedPotionRepository.GetAllAsync();
 
-            return brewedPotions.Count(bp => bp.CreatedAt >= from && bp.CreatedAt <= to);
+            DateTime endDate = to.Date.AddDays(1);
+
+            return brewedPotions.Count(bp => bp.CreatedAt.Date >= from.Date && bp.CreatedAt.Date <= to.Date);
         }
     }
 }

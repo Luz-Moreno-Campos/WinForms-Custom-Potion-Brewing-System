@@ -22,26 +22,37 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
             _brewingForm = brewingForm;
         }
 
-        private async Task LoadDashboardAsync()
+        private async Task LoadGridsAsync()
         {
             try
             {
-                dgvFrequentlyBrewed.DataSource = await _brewedPotionService.GetMostFrequentlyBrewedPotionsAsync();
+                dgvFrequentlyBrewed.DataSource = await _brewedPotionService.GetMostFrequentlyBrewedPotionsAsync();               
                 dgvFrequentlyBrewed.Columns["TimesBrewed"].HeaderText = "Times Brewed";
-                
+
                 dgvMostConsumed.DataSource = await _brewedPotionService.GetMostHeavilyConsumedIngredientsAsync();
-                dgvMostConsumed.Columns["TotalConsumed"].HeaderText ="Total Consumed";
-                
-                lblThroughput.Text = (await _brewedPotionService.GetBrewingThroughputAsync(
-                        dtpFrom.Value,
-                        dtpTo.Value))
-                    .ToString();
+                dgvMostConsumed.Columns["TotalConsumed"].HeaderText = "Total Consumed";
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading dashboard: {ex.Message}", "Error",
+                MessageBox.Show($"Error loading metrics: {ex.Message}", "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task LoadThroughputAsync()
+
+        {
+            try
+            {
+                int throughput = await _brewedPotionService.GetBrewingThroughputAsync(dtpFrom.Value, dtpTo.Value);
+                lblThroughput.Text = throughput.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error calculating throughput: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private async void DashboardForm_Load(object sender, EventArgs e)
@@ -50,12 +61,12 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
             dtpTo.Value = DateTime.Today;
             dtpFrom.Value = DateTime.Today.AddDays(-30);
 
-            await LoadDashboardAsync();
+            await LoadGridsAsync();
         }
 
         private async void btnGenerate_Click(object sender, EventArgs e)
         {
-            await LoadDashboardAsync();
+            await LoadThroughputAsync();
         }
 
         private void btnIngredients_Click(object sender, EventArgs e)

@@ -246,6 +246,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvMostConsumed).EndInit();
             ResumeLayout(false);
             PerformLayout();
+            Load += DashboardForm_Load;
         }
 
         #endregion
