@@ -363,7 +363,9 @@ namespace WinForms_Custom_Potion_Brewing_System.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error deleting recipe: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("This recipe cannot be deleted because it has already been brewed.","Delete Not Allowed",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                 }
             }
         }

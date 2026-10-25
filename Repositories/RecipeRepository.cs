@@ -47,7 +47,9 @@ namespace WinForms_Custom_Potion_Brewing_System.Repositories
 
             if (local != null)
             {
-                _context.Entry(local).CurrentValues.SetValues(recipe);
+                local.Name = recipe.Name;
+                local.SpecialEffect = recipe.SpecialEffect;
+                local.BrewingDurationSeconds = recipe.BrewingDurationSeconds;
 
                 foreach (var existingIngredient in local.RecipeIngredients.ToList())
                 {
